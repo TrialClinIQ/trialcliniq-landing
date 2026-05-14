@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary */
+  --primary: #143854;
+  --primary-dark: #080F1A;
+  --primary-light: #1E5A8A;
+
+  /* Accent */
+  --accent: #0CC0DF;
+  --accent-mid: #0A9BB5;
+  --accent-light: #7DD8E8;
+
+  /* Navy scale */
+  --navy: #143854;
+  --navy-deep: #080F1A;
+  --navy-mid: #1C4B6E;
+  --navy-light: #2A6A96;
+  --navy-surface: #0D2438;
+  --navy-border: #1E4D70;
+
+  /* Light / Neutral */
+  --white: #FFFFFF;
+  --off-white: #F5F8FA;
+  --surface: #E8EEF3;
+  --border: #C5D5E4;
+  --text-muted: #5A7A94;
+  --text-body: #2C4356;
+  --footer-bg: #080F1A;
+
+  /* Gradients */
+  --grad-brand: linear-gradient(135deg, #0CC0DF 0%, #143854 50%, #080F1A 100%);
+  --grad-hero: linear-gradient(160deg, #080F1A 0%, #143854 55%, #1E5A8A 100%);
+
+  /* Shadows */
+  --shadow-accent: 0 8px 40px rgba(12, 192, 223, 0.25);
+  --shadow-primary: 0 8px 40px rgba(20, 56, 84, 0.35);
+  --shadow-card: 0 4px 24px rgba(20, 56, 84, 0.12);
+
+  /* Base */
+  --background: var(--white);
+  --foreground: var(--text-body);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Fonts */
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-sora);
+
+  /* Primary */
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+
+  /* Accent */
+  --color-accent: var(--accent);
+  --color-accent-mid: var(--accent-mid);
+  --color-accent-light: var(--accent-light);
+
+  /* Navy scale */
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-mid: var(--navy-mid);
+  --color-navy-light: var(--navy-light);
+  --color-navy-surface: var(--navy-surface);
+  --color-navy-border: var(--navy-border);
+
+  /* Light / Neutral */
+  --color-off-white: var(--off-white);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text-muted: var(--text-muted);
+  --color-text-body: var(--text-body);
+  --color-footer-bg: var(--footer-bg);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+/* Heading styles with Sora font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sora), system-ui, sans-serif;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }

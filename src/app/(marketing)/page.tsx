@@ -1,10 +1,25 @@
+import { Navbar } from "@/components/landing/Navbar";
+import { Hero } from "@/components/landing/Hero";
+import { HowItWorks } from "@/components/landing/HowItWorks";
+import { Features } from "@/components/landing/Features";
+import { AudienceSections } from "@/components/landing/AudienceSections";
+import { WaitlistForm } from "@/components/landing/WaitlistForm";
+import { About } from "@/components/landing/About";
+import { Footer } from "@/components/landing/Footer";
+
 export default function LandingPage() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold">TrialCliniq</h1>
-      <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
-        Welcome to TrialCliniq
-      </p>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <HowItWorks />
+        <Features />
+        <AudienceSections />
+        <WaitlistForm />
+        <About />
+      </main>
+      <Footer />
+    </>
   );
 }
