@@ -4,40 +4,11 @@ import { useState } from "react";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { CTA } from "@/components/landing/CTA";
+import { CookieBanner } from "@/components/landing/CookieBanner";
+import { HowItWorksPatients } from "@/components/landing/HowItWorksPatients";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
-import Image from "next/image";
-
-const contentSections = [
-  {
-    tag: "Find Your Match",
-    title: "Get matched with trials that fit your profile",
-    description:
-      "Our intelligent platform analyzes your health profile and preferences to connect you with CNS clinical trials that are the right fit. No more endless searching—we bring the opportunities to you.",
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
-    reverse: false,
-  },
-  {
-    tag: "Safe & Secure",
-    title: "Your health data is protected",
-    description:
-      "We take privacy seriously. Your personal health information is safeguarded with HIPAA-compliant security measures. You control what you share and with whom.",
-    image:
-      "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&h=600&fit=crop",
-    reverse: true,
-  },
-  {
-    tag: "Expert Support",
-    title: "Guidance at every step of your journey",
-    description:
-      "From understanding trial requirements to connecting with research sites, our team is here to support you. We make the process clear, simple, and stress-free.",
-    image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=600&fit=crop",
-    reverse: false,
-  },
-];
 
 export default function PatientsPage() {
   const [formData, setFormData] = useState({
@@ -193,65 +164,14 @@ export default function PatientsPage() {
           </Container>
         </section>
 
-        {/* Content Sections */}
-        {contentSections.map((section, index) => (
-          <section
-            key={index}
-            className={`py-16 md:py-24 ${index % 2 === 0 ? "bg-white" : "bg-off-white"}`}
-          >
-            <Container>
-              <div
-                className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
-                  section.reverse ? "lg:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Image */}
-                <motion.div
-                  className={section.reverse ? "lg:order-2" : ""}
-                  initial={{ opacity: 0, x: section.reverse ? 20 : -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="relative rounded-2xl overflow-hidden aspect-4/3">
-                    <Image
-                      src={section.image}
-                      alt={section.title}
-                      fill
-                      className="object-cover"
-                      unoptimized
-                    />
-                    <div className="absolute inset-0 bg-linear-to-tr from-navy/20 to-transparent" />
-                  </div>
-                </motion.div>
-
-                {/* Content */}
-                <motion.div
-                  className={section.reverse ? "lg:order-1" : ""}
-                  initial={{ opacity: 0, x: section.reverse ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  <span className="inline-block px-3 py-1 rounded-full bg-navy/10 text-navy text-sm font-medium mb-4">
-                    {section.tag}
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-                    {section.title}
-                  </h2>
-                  <p className="text-text-muted text-lg leading-relaxed">
-                    {section.description}
-                  </p>
-                </motion.div>
-              </div>
-            </Container>
-          </section>
-        ))}
+        {/* How It Works */}
+        <HowItWorksPatients />
 
         {/* CTA */}
         <CTA />
       </main>
       <Footer />
+      <CookieBanner />
     </>
   );
 }

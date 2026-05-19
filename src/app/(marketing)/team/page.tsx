@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { CTA } from "@/components/landing/CTA";
+import { CookieBanner } from "@/components/landing/CookieBanner";
 import { Container } from "@/components/ui/Container";
 import { motion } from "framer-motion";
 
@@ -173,6 +174,7 @@ export default function TeamPage() {
         <CTA />
       </main>
       <Footer />
+      <CookieBanner />
     </>
   );
 }

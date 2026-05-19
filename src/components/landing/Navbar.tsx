@@ -40,6 +40,7 @@ const solutionsDropdown = {
 
 const navLinks = [
   { href: "#about", label: "About" },
+  { href: "/investors", label: "Investors" },
   { href: "/team", label: "Team" },
 ];
 

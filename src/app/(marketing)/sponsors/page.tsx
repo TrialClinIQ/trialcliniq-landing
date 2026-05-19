@@ -4,40 +4,12 @@ import { useState } from "react";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { CTA } from "@/components/landing/CTA";
+import { CookieBanner } from "@/components/landing/CookieBanner";
+import { WhyPartner } from "@/components/landing/WhyPartner";
+import { HowWeDoItSponsors } from "@/components/landing/HowWeDoItSponsors";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
-import Image from "next/image";
-
-const contentSections = [
-  {
-    tag: "Accelerated Enrollment",
-    title: "Reduce enrollment timelines by up to 50%",
-    description:
-      "Our pre-screened, consent-ready patient population means you spend less time recruiting and more time advancing your research. Access patients who are already informed and motivated to participate in CNS clinical trials.",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop",
-    reverse: false,
-  },
-  {
-    tag: "Quality Candidates",
-    title: "Access patients who meet your specific criteria",
-    description:
-      "Our advanced matching algorithms connect you with patients who precisely match your inclusion/exclusion criteria. Reduce screen failures and improve the quality of your trial data from day one.",
-    image:
-      "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=600&fit=crop",
-    reverse: true,
-  },
-  {
-    tag: "Diverse Populations",
-    title: "Connect with underserved communities",
-    description:
-      "Reach diverse patient populations that are often underrepresented in clinical trials. Our network includes community health centers and patient advocacy groups across multiple regions.",
-    image:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop",
-    reverse: false,
-  },
-];
 
 export default function SponsorsPage() {
   const [formData, setFormData] = useState({
@@ -194,65 +166,17 @@ export default function SponsorsPage() {
           </Container>
         </section>
 
-        {/* Content Sections */}
-        {contentSections.map((section, index) => (
-          <section
-            key={index}
-            className={`py-16 md:py-24 ${index % 2 === 0 ? "bg-white" : "bg-off-white"}`}
-          >
-            <Container>
-              <div
-                className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
-                  section.reverse ? "lg:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Image */}
-                <motion.div
-                  className={section.reverse ? "lg:order-2" : ""}
-                  initial={{ opacity: 0, x: section.reverse ? 20 : -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="relative rounded-2xl overflow-hidden aspect-4/3">
-                    <Image
-                      src={section.image}
-                      alt={section.title}
-                      fill
-                      className="object-cover"
-                      unoptimized
-                    />
-                    <div className="absolute inset-0 bg-linear-to-tr from-navy/20 to-transparent" />
-                  </div>
-                </motion.div>
+        {/* Why Partner With Us */}
+        <WhyPartner />
 
-                {/* Content */}
-                <motion.div
-                  className={section.reverse ? "lg:order-1" : ""}
-                  initial={{ opacity: 0, x: section.reverse ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  <span className="inline-block px-3 py-1 rounded-full bg-navy/10 text-navy text-sm font-medium mb-4">
-                    {section.tag}
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-                    {section.title}
-                  </h2>
-                  <p className="text-text-muted text-lg leading-relaxed">
-                    {section.description}
-                  </p>
-                </motion.div>
-              </div>
-            </Container>
-          </section>
-        ))}
+        {/* How We Do It */}
+        <HowWeDoItSponsors />
 
         {/* CTA */}
         <CTA />
       </main>
       <Footer />
+      <CookieBanner />
     </>
   );
 }
