@@ -8,11 +8,8 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "#how-it-works", label: "What We Do" },
-  { href: "#features", label: "Features" },
-  { href: "#for-patients", label: "For Patients" },
-  { href: "#for-providers", label: "Providers" },
   { href: "#about", label: "About" },
+  { href: "#solutions", label: "Solutions" },
 ];
 
 export function Navbar() {
@@ -43,9 +40,9 @@ export function Navbar() {
             <Image
               src="/trialcliniq_logo.svg"
               alt="TrialClinIQ"
-              width={160}
-              height={40}
-              className="h-8 md:h-10 w-auto"
+              width={200}
+              height={50}
+              className="h-10 md:h-14 w-auto"
               priority
             />
           </Link>
@@ -68,16 +65,16 @@ export function Navbar() {
             <Button
               variant="secondary"
               size="sm"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })}
             >
               Contact Us
             </Button>
             <Button
               variant="primary"
               size="sm"
-              onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Try Kinikan
+              Try Now
             </Button>
           </div>
 
@@ -133,7 +130,7 @@ export function Navbar() {
                   className="w-full"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
                   }}
                 >
                   Contact Us
@@ -144,10 +141,10 @@ export function Navbar() {
                   className="w-full"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" });
+                    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Try Kinikan
+                  Try Now
                 </Button>
               </div>
             </div>

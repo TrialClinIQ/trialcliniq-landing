@@ -1,43 +1,58 @@
+"use client";
+
 import { Container } from "@/components/ui/Container";
+import { motion } from "framer-motion";
 
 export function About() {
   return (
     <section id="about" className="py-20 md:py-28 bg-gradient-to-br from-cyan/5 via-transparent to-blue/5">
       <Container>
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Our Mission
-          </h2>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left column - Main content */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+              With the power of AI,
+              <br />
+              we now have the
+              <br />
+              ability to
+            </h2>
+          </motion.div>
 
-          <p className="text-lg md:text-xl text-foreground/70 leading-relaxed">
-            At TrialClinIQ, we believe that everyone deserves access to cutting-edge
-            medical research, regardless of where they live or where they receive care.
-            We&apos;re building a future where clinical trials reflect the diversity of the
-            populations they aim to serve—one community health center at a time.
-          </p>
-
-          <div className="mt-12 grid sm:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-cyan mb-2">80%</div>
-              <div className="text-sm text-foreground/60">
-                of clinical trials fail to meet enrollment deadlines
-              </div>
+          {/* Right column - Feature list */}
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold tracking-wider text-foreground">ACCELERATE</h3>
+              <p className="text-base text-foreground/70">the discovery of novel targets</p>
             </div>
 
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-cyan mb-2">75%</div>
-              <div className="text-sm text-foreground/60">
-                of trial participants are white
-              </div>
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold tracking-wider text-foreground">PREDICT</h3>
+              <p className="text-base text-foreground/70">the effectiveness of treatments</p>
             </div>
 
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-cyan mb-2">30M</div>
-              <div className="text-sm text-foreground/60">
-                patients served by community health centers
-              </div>
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold tracking-wider text-foreground">IDENTIFY</h3>
+              <p className="text-base text-foreground/70">potentially life-saving clinical trials</p>
             </div>
-          </div>
+
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold tracking-wider text-foreground">DIAGNOSE</h3>
+              <p className="text-base text-foreground/70">multiple diseases earlier</p>
+            </div>
+          </motion.div>
         </div>
       </Container>
     </section>

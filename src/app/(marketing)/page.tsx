@@ -1,10 +1,8 @@
 import { Navbar } from "@/components/landing/Navbar";
 import { Hero } from "@/components/landing/Hero";
-import { HowItWorks } from "@/components/landing/HowItWorks";
-import { Features } from "@/components/landing/Features";
-import { AudienceSections } from "@/components/landing/AudienceSections";
-import { WaitlistForm } from "@/components/landing/WaitlistForm";
 import { About } from "@/components/landing/About";
+import { Solutions } from "@/components/landing/Solutions";
+import { CTA } from "@/components/landing/CTA";
 import { Footer } from "@/components/landing/Footer";
 
 export default function LandingPage() {
@@ -13,11 +11,9 @@ export default function LandingPage() {
       <Navbar />
       <main>
         <Hero />
-        <HowItWorks />
-        <Features />
-        <AudienceSections />
-        <WaitlistForm />
         <About />
+        <Solutions />
+        <CTA />
       </main>
       <Footer />
     </>
