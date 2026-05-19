@@ -84,10 +84,10 @@ export function Footer() {
             {/* Logo */}
             <div className="flex items-center">
               <Image
-                src="/trialcliniq_logo.svg"
+                src="/logo.png"
                 alt="TrialClinIQ"
-                width={180}
-                height={45}
+                width={300}
+                height={100}
                 className="h-10 w-auto brightness-0 invert"
               />
             </div>
