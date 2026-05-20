@@ -40,12 +40,12 @@ const audiences = [
   {
     id: "sponsors",
     label: "For Sponsors/CROs",
-    title: "Diverse Recruitment Solutions",
-    description: "Reach underrepresented patient populations to meet your enrollment goals.",
+    title: "Accelerated Recruitment Solutions",
+    description: "Connect with community health centers and leverage interoperable data to meet your enrollment goals.",
     bullets: [
-      "Access diverse patient populations through trusted community partners",
-      "Reduce recruitment timelines with AI-powered matching",
-      "Meet FDA diversity requirements for clinical trials",
+      "Access patient populations through trusted community health center partnerships",
+      "Reduce recruitment timelines with AI-powered matching and interoperable EHR data",
+      "Streamline enrollment with pre-screened, consent-ready candidates",
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">

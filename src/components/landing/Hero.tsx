@@ -60,11 +60,8 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              CLINICAL TRIAL RECRUITMENT USING LLMS
+              CLINICAL TRIAL DATA INFRASTRUCTURE
             </motion.p>
-
-     
-         
 
             {/* Subheading */}
             <motion.h2
@@ -73,7 +70,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Consent-Based EHR Aggregation + AI Matching for CNS Trials
+              Connecting Sponsors and Health Systems Through AI-Powered Patient Matching
             </motion.h2>
 
             {/* Detailed description */}
@@ -83,7 +80,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Patient-centered trial discovery meets pre-screened, Consent-ready candidates. TrialClinIQ is a secure HIE that empowers CNS patients in life-changing clinical trials while keeping you in control of your health data.
+              TrialClinIQ is building the clinical trial recruitment data infrastructure of the future — using real-world health records and AI to accelerate enrollment, beginning with CNS and Alzheimer's trials.
             </motion.p>
 
             {/* CTA Buttons */}

@@ -2,6 +2,7 @@
 
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { PipedriveWebForm } from "@/components/PipedriveWebForm";
 import { motion } from "framer-motion";
 
 export function CTA() {
@@ -47,7 +48,7 @@ export function CTA() {
               <Button
                 variant="primary"
                 size="lg"
-                className="bg-[#0d2847] text-white hover:bg-[#1a3a6b] border-none shadow-xl"
+                className="bg-[#0d2847] text-white hover:bg-[#1a3a6b] border-none shadow-xl mb-8"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 Contact Us
@@ -55,6 +56,11 @@ export function CTA() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Button>
+
+              {/* Pipedrive Web Form */}
+              <div className="max-w-md mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+                <PipedriveWebForm />
+              </div>
             </motion.div>
           </div>
         </div>

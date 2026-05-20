@@ -17,11 +17,11 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-              With the power of AI,
+              Building the
               <br />
-              we now have the
+              recruitment data
               <br />
-              ability to
+              infrastructure to
             </h2>
           </motion.div>
 
@@ -34,23 +34,23 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="space-y-2">
+              <h3 className="text-xl font-bold tracking-wider text-foreground">CONNECT</h3>
+              <p className="text-base text-foreground/70">sponsors with health systems at scale</p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold tracking-wider text-foreground">AGGREGATE</h3>
+              <p className="text-base text-foreground/70">real-world health records for intelligent matching</p>
+            </div>
+
+            <div className="space-y-2">
               <h3 className="text-xl font-bold tracking-wider text-foreground">ACCELERATE</h3>
-              <p className="text-base text-foreground/70">the discovery of novel targets</p>
+              <p className="text-base text-foreground/70">enrollment timelines with pre-screened candidates</p>
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl font-bold tracking-wider text-foreground">PREDICT</h3>
-              <p className="text-base text-foreground/70">the effectiveness of treatments</p>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-xl font-bold tracking-wider text-foreground">IDENTIFY</h3>
-              <p className="text-base text-foreground/70">potentially life-saving clinical trials</p>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-xl font-bold tracking-wider text-foreground">DIAGNOSE</h3>
-              <p className="text-base text-foreground/70">multiple diseases earlier</p>
+              <h3 className="text-xl font-bold tracking-wider text-foreground">SCALE</h3>
+              <p className="text-base text-foreground/70">CNS and Alzheimer's trials across partner networks</p>
             </div>
           </motion.div>
         </div>

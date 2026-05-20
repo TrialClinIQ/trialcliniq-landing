@@ -48,11 +48,19 @@ export default function SponsorsPage() {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6 leading-tight">
                   Accelerate Your CNS Trial Enrollment
                 </h1>
-                <p className="text-lg text-text-muted max-w-lg">
+                <p className="text-lg text-text-muted max-w-lg mb-8">
                   See how TrialClinIQ accelerates CNS trial enrollment with
                   pre-screened, consent-ready candidates. Partner with us to
                   reduce timelines and improve patient quality.
                 </p>
+                <div className="flex flex-wrap gap-4">
+                  <Button variant="primary" size="lg">
+                    Schedule a Demo
+                  </Button>
+                  <Button variant="outline" size="lg">
+                    Learn More
+                  </Button>
+                </div>
               </motion.div>
 
               {/* Right - Form */}

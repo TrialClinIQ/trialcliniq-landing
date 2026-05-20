@@ -47,11 +47,19 @@ export default function PatientsPage() {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6 leading-tight">
                   Access Breakthrough CNS Therapies
                 </h1>
-                <p className="text-lg text-text-muted max-w-lg">
+                <p className="text-lg text-text-muted max-w-lg mb-8">
                   Be first to access our HIE platform and get matched to CNS
                   clinical trials. Join thousands who are advancing neuroscience
                   research while accessing innovative treatments.
                 </p>
+                <div className="flex flex-wrap gap-4">
+                  <Button variant="primary" size="lg">
+                    Join Waitlist
+                  </Button>
+                  <Button variant="outline" size="lg">
+                    How It Works
+                  </Button>
+                </div>
               </motion.div>
 
               {/* Right - Form */}

@@ -46,11 +46,19 @@ export default function InvestorsPage() {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6 leading-tight">
                   Invest in the Future of CNS Clinical Trials
                 </h1>
-                <p className="text-lg text-text-muted max-w-lg">
+                <p className="text-lg text-text-muted max-w-lg mb-8">
                   Join us in revolutionizing CNS trial enrollment and patient matching.
                   Partner with TrialClinIQ to accelerate innovation in neuroscience
                   research and unlock massive market potential.
                 </p>
+                <div className="flex flex-wrap gap-4">
+                  <Button variant="primary" size="lg">
+                    Request Pitch Deck
+                  </Button>
+                  <Button variant="outline" size="lg">
+                    Learn More
+                  </Button>
+                </div>
               </motion.div>
 
               {/* Right - Form */}
@@ -159,66 +167,6 @@ export default function InvestorsPage() {
                   )}
                 </div>
               </motion.div>
-            </div>
-          </Container>
-        </section>
-
-        {/* Market Opportunity */}
-        <section className="py-20 md:py-32 bg-white">
-          <Container>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6">
-                The Opportunity
-              </h2>
-              <p className="text-text-muted text-lg max-w-3xl mx-auto">
-                CNS clinical trials face unprecedented challenges. We&apos;re solving
-                them with cutting-edge technology and a proven network.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  stat: "$280B+",
-                  label: "CNS Drug Market Size",
-                  description: "Growing market with increasing demand for innovative treatments",
-                },
-                {
-                  stat: "80%",
-                  label: "Trials Missing Enrollment",
-                  description: "Critical need for better patient recruitment solutions",
-                },
-                {
-                  stat: "6,000+",
-                  label: "Research Sites",
-                  description: "Access to our extensive global network",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-off-white rounded-2xl p-8 text-center"
-                >
-                  <div className="text-5xl font-bold text-orange mb-3">
-                    {item.stat}
-                  </div>
-                  <div className="text-xl font-bold text-navy mb-2">
-                    {item.label}
-                  </div>
-                  <p className="text-text-muted">
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
             </div>
           </Container>
         </section>

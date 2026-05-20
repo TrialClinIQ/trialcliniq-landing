@@ -11,9 +11,9 @@ const team = [
   {
     name: "Jontel Peirce",
     role: "Chief Executive Officer",
-    bio: "Visionary founder driving the mission to connect underserved communities with life-changing clinical trials. Passionate about healthcare equity and innovation.",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+    bio: "Visionary founder driving the mission to improve clinical trial access through interoperable health systems and community health center partnerships. Passionate about accelerating neuroscience research and reducing recruitment timelines.",
+    image: "/jontel.jpg",
+    linkedin: "https://www.linkedin.com/in/jontelpierce/",
   },
 ];
 
@@ -38,8 +38,8 @@ export default function TeamPage() {
                 Transforming Clinical Trial Access
               </h1>
               <p className="text-lg text-text-muted max-w-2xl">
-                We&apos;re dedicated professionals committed to bridging the gap
-                between clinical research and underserved communities.
+                We&apos;re dedicated professionals committed to improving clinical trial
+                access through interoperability and community health center connections.
               </p>
             </motion.div>
           </Container>
@@ -57,20 +57,17 @@ export default function TeamPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                {/* Photo placeholder */}
+                {/* Photo */}
                 <div className="lg:col-span-2">
-                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-linear-to-br from-navy to-navy-deep">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-8xl md:text-9xl font-bold text-white/20">
-                        {member.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </span>
-                    </div>
-                    {/* Decorative elements */}
+                  <div className="relative aspect-square rounded-2xl overflow-hidden">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Decorative overlay */}
                     <div className="absolute bottom-6 left-6 right-6">
-                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                      <div className="bg-navy/80 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                         <p className="text-white font-semibold">{member.name}</p>
                         <p className="text-white/70 text-sm">{member.role}</p>
                       </div>
@@ -105,21 +102,6 @@ export default function TeamPage() {
                         viewBox="0 0 24 24"
                       >
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                      </svg>
-                    </a>
-                    <a
-                      href={member.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-11 h-11 rounded-xl bg-navy/5 text-navy hover:bg-navy hover:text-white flex items-center justify-center transition-colors"
-                      aria-label="Twitter"
-                    >
-                      <svg
-                        className="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                       </svg>
                     </a>
                   </div>

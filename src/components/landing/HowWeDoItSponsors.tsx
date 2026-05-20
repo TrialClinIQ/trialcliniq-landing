@@ -132,7 +132,7 @@ const steps = [
                 </div>
                 <div className="flex items-start gap-2 text-xs text-navy">
                   <span className="text-orange">✓</span>
-                  <span>40% diversity</span>
+                  <span>EHR integrated</span>
                 </div>
               </div>
             </div>
@@ -151,7 +151,7 @@ const steps = [
               <h4 className="font-bold text-navy text-base mb-1">Applied Clinical Research</h4>
               <p className="text-xs text-text-muted mb-3">Alexandra Brown, M.D. • Miami, FL, 33125...</p>
               <div className="flex flex-wrap gap-2 mb-3">
-                <span className="px-2.5 py-1 bg-navy/10 text-navy text-xs font-medium rounded-md">Diverse site</span>
+                <span className="px-2.5 py-1 bg-navy/10 text-navy text-xs font-medium rounded-md">CHC partner</span>
                 <span className="px-2.5 py-1 bg-surface text-text-muted text-xs font-medium rounded-md flex items-center gap-1">
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
@@ -301,7 +301,8 @@ export function HowWeDoItSponsors() {
   return (
     <section
       ref={containerRef}
-      className="py-20 md:py-32 bg-linear-to-br from-navy via-navy-mid to-navy-light"
+      className="py-20 md:py-32"
+      style={{ backgroundColor: "#0d2847" }}
     >
       <Container>
         <motion.div

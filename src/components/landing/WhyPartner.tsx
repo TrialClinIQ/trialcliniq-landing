@@ -17,7 +17,7 @@ const benefits = [
     ),
     title: "Partner with proven sites",
     description:
-      "Work with motivated, high-performing sites that match your protocol and help you reach underrepresented communities.",
+      "Work with motivated, high-performing community health centers that match your protocol and accelerate your recruitment timelines.",
   },
   {
     icon: (

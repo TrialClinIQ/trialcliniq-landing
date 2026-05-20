@@ -7,29 +7,29 @@ import Image from "next/image";
 
 const steps = [
   {
-    title: "Create your profile",
+    title: "Integrate health systems",
     content:
-      "Sign up and complete your health profile with relevant medical history and CNS condition information. Your data is protected with HIPAA-compliant security.",
+      "We connect directly with health system EHRs and community health centers, aggregating real-world health records into our secure data infrastructure.",
   },
   {
-    title: "Get matched to trials",
+    title: "Define trial protocols",
     content:
-      "Our intelligent matching system analyzes your profile against active CNS clinical trials to find the best opportunities for you.",
+      "Sponsors upload their CNS trial protocols and eligibility criteria. Our platform normalizes requirements for AI-powered matching.",
   },
   {
-    title: "Connect with research sites",
+    title: "AI identifies candidates",
     content:
-      "Once matched, you'll be connected directly with research sites conducting trials that fit your profile. Our team guides you through each step.",
+      "Machine learning algorithms analyze aggregated health records to identify and pre-screen patients who match trial criteria.",
   },
   {
-    title: "Pre-screening & consent",
+    title: "Deliver qualified candidates",
     content:
-      "Complete pre-screening assessments from home and receive all the information you need to make an informed decision about participation.",
+      "Pre-screened, consent-ready candidates are surfaced to sponsors with relevant clinical data, dramatically reducing screening failures.",
   },
   {
-    title: "Begin your trial journey",
+    title: "Track enrollment metrics",
     content:
-      "With support from TrialClinIQ and the research team, you'll start participating in breakthrough CNS research that could help millions.",
+      "Real-time dashboards provide visibility into recruitment pipeline, site performance, and enrollment progress across the network.",
   },
 ];
 
@@ -118,8 +118,8 @@ export function HowItWorks() {
               works
             </h2>
             <p className="text-text-muted text-lg mb-10 max-w-md">
-              Our platform is designed to connect patients with CNS clinical
-              trials seamlessly. Here&apos;s how it works:
+              Our data infrastructure connects sponsors with health systems
+              to accelerate CNS trial recruitment. Here&apos;s how it works:
             </p>
 
             {/* Divider */}
