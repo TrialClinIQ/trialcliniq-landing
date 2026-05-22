@@ -9,16 +9,61 @@ export function Newsletter() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setEmail("");
+    setError("");
+
+    try {
+      // Get reCAPTCHA token (optional - proceed without if not loaded)
+      let recaptchaToken = "";
+      if (typeof window !== "undefined" && window.grecaptcha?.enterprise) {
+        try {
+          recaptchaToken = await new Promise<string>((resolve) => {
+            window.grecaptcha.enterprise.ready(async () => {
+              const token = await window.grecaptcha.enterprise.execute(
+                "6LcYfvcsAAAAAJ8qpmFJYz9tj4YV_e1XV_GttCZF",
+                { action: "SUBMIT_FORM" }
+              );
+              resolve(token);
+            });
+          });
+        } catch {
+          // Continue without reCAPTCHA if it fails
+          console.warn("reCAPTCHA not available");
+        }
+      }
+
+      const response = await fetch("/api/pipedrive", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          newsletter: true,
+          source: "newsletter",
+          recaptchaToken,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to subscribe");
+      }
+
+      setIsSubmitted(true);
+      setEmail("");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -87,6 +132,11 @@ export function Newsletter() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
+                    {error && (
+                      <div className="p-3 rounded-lg bg-red-50 text-red-600 text-sm">
+                        {error}
+                      </div>
+                    )}
                     <input
                       type="email"
                       value={email}

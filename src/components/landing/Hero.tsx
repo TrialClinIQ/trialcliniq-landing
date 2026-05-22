@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
@@ -90,20 +91,14 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Get Free Demo
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Learn More
-              </Button>
+              <Link href="/contact">
+                <Button
+                  variant="primary"
+                  size="lg"
+                >
+                  Get Free Demo
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
 

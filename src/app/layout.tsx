@@ -32,6 +32,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
         {children}
+        {/* Google reCAPTCHA Enterprise */}
+        <Script
+          src="https://www.google.com/recaptcha/enterprise.js?render=6LcYfvcsAAAAAJ8qpmFJYz9tj4YV_e1XV_GttCZF"
+          strategy="lazyOnload"
+        />
         {/* Pipedrive LeadBooster Chatbot */}
         <Script id="pipedrive-config" strategy="lazyOnload">
           {`

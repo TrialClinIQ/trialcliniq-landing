@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { CTA } from "@/components/landing/CTA";
@@ -13,17 +14,67 @@ export default function InvestorsPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    organization: "",
+    phone: "",
+    comment: "",
+    newsletter: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError("");
+
+    try {
+      // Get reCAPTCHA token (optional - proceed without if not loaded)
+      let recaptchaToken = "";
+      if (typeof window !== "undefined" && window.grecaptcha?.enterprise) {
+        try {
+          recaptchaToken = await new Promise<string>((resolve) => {
+            window.grecaptcha.enterprise.ready(async () => {
+              const token = await window.grecaptcha.enterprise.execute(
+                "6LcYfvcsAAAAAJ8qpmFJYz9tj4YV_e1XV_GttCZF",
+                { action: "SUBMIT_FORM" }
+              );
+              resolve(token);
+            });
+          });
+        } catch {
+          // Continue without reCAPTCHA if it fails
+          console.warn("reCAPTCHA not available");
+        }
+      }
+
+      const response = await fetch("/api/pipedrive", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          comment: formData.comment,
+          newsletter: formData.newsletter,
+          source: "investors",
+          recaptchaToken,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to submit form");
+      }
+
+      setIsSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -51,14 +102,6 @@ export default function InvestorsPage() {
                   Partner with TrialClinIQ to accelerate innovation in neuroscience
                   research and unlock massive market potential.
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button variant="primary" size="lg">
-                    Request Pitch Deck
-                  </Button>
-                  <Button variant="outline" size="lg">
-                    Learn More
-                  </Button>
-                </div>
               </motion.div>
 
               {/* Right - Form */}
@@ -121,6 +164,11 @@ export default function InvestorsPage() {
                       </div>
 
                       <form onSubmit={handleSubmit} className="space-y-4">
+                        {error && (
+                          <div className="p-3 rounded-lg bg-red-50 text-red-600 text-sm">
+                            {error}
+                          </div>
+                        )}
                         <input
                           type="text"
                           value={formData.name}
@@ -142,18 +190,42 @@ export default function InvestorsPage() {
                           className="w-full px-4 py-3.5 rounded-xl border border-border bg-white text-navy placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors"
                         />
                         <input
-                          type="text"
-                          value={formData.organization}
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) =>
+                            setFormData({ ...formData, phone: e.target.value })
+                          }
+                          placeholder="Phone Number (optional)"
+                          className="w-full px-4 py-3.5 rounded-xl border border-border bg-white text-navy placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors"
+                        />
+                        <textarea
+                          value={formData.comment}
                           onChange={(e) =>
                             setFormData({
                               ...formData,
-                              organization: e.target.value,
+                              comment: e.target.value,
                             })
                           }
-                          placeholder="Organization / Firm"
-                          required
-                          className="w-full px-4 py-3.5 rounded-xl border border-border bg-white text-navy placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors"
+                          placeholder="Tell us about your interest..."
+                          rows={3}
+                          className="w-full px-4 py-3.5 rounded-xl border border-border bg-white text-navy placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors resize-none"
                         />
+                        <label className="flex items-start gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={formData.newsletter}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                newsletter: e.target.checked,
+                              })
+                            }
+                            className="mt-1 w-4 h-4 rounded border-border text-navy focus:ring-navy/20"
+                          />
+                          <span className="text-sm text-text-muted">
+                            Subscribe to our newsletter for CNS trial insights and updates
+                          </span>
+                        </label>
                         <Button
                           type="submit"
                           variant="primary"

@@ -163,22 +163,16 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })}
-            >
-              Contact Us
-            </Button>
-            <Button
-              variant="primary"
-              size="sm"
-              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Try Now
-            </Button>
+          {/* CTA Button */}
+          <div className="hidden lg:flex items-center">
+            <Link href="/waitlist">
+              <Button
+                variant="primary"
+                size="sm"
+              >
+                Join Waitlist
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -246,29 +240,16 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-4 px-4 flex flex-col gap-2">
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  className="w-full"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-                  }}
-                >
-                  Contact Us
-                </Button>
-                <Button
-                  variant="primary"
-                  size="sm"
-                  className="w-full"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Try Now
-                </Button>
+              <div className="pt-4 px-4">
+                <Link href="/waitlist" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Join Waitlist
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,18 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
-import { CTA } from "@/components/landing/CTA";
 import { CookieBanner } from "@/components/landing/CookieBanner";
-import { WhyPartner } from "@/components/landing/WhyPartner";
-import { HowWeDoItSponsors } from "@/components/landing/HowWeDoItSponsors";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 
-export default function SponsorsPage() {
+export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -60,7 +56,7 @@ export default function SponsorsPage() {
           phone: formData.phone,
           comment: formData.comment,
           newsletter: formData.newsletter,
-          source: "sponsors",
+          source: "contact",
           recaptchaToken,
         }),
       });
@@ -93,17 +89,86 @@ export default function SponsorsPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-navy/10 text-navy text-sm font-medium mb-6">
-                  For Sponsors & CROs
-                </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6 leading-tight">
-                  Accelerate Your CNS Trial Enrollment
+                  Get in Touch with TrialClinIQ
                 </h1>
                 <p className="text-lg text-text-muted max-w-lg mb-8">
-                  See how TrialClinIQ accelerates CNS trial enrollment with
-                  pre-screened, consent-ready candidates. Partner with us to
-                  reduce timelines and improve patient quality.
+                  Whether you're a sponsor looking to accelerate enrollment, an
+                  investor interested in our vision, or a patient seeking trial
+                  opportunities, we're here to help. Reach out to learn more
+                  about how TrialClinIQ can support your needs.
                 </p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-navy/10 flex items-center justify-center flex-shrink-0">
+                      <svg
+                        className="w-6 h-6 text-navy"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-navy mb-1">For Sponsors</h3>
+                      <p className="text-sm text-text-muted">
+                        Schedule a demo to see how we accelerate CNS trial enrollment
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-navy/10 flex items-center justify-center flex-shrink-0">
+                      <svg
+                        className="w-6 h-6 text-navy"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-navy mb-1">For Investors</h3>
+                      <p className="text-sm text-text-muted">
+                        Learn about investment opportunities in CNS trial innovation
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-navy/10 flex items-center justify-center flex-shrink-0">
+                      <svg
+                        className="w-6 h-6 text-navy"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-navy mb-1">For Patients</h3>
+                      <p className="text-sm text-text-muted">
+                        Get matched to CNS clinical trials and access breakthrough therapies
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Right - Form */}
@@ -134,8 +199,7 @@ export default function SponsorsPage() {
                         Thank You!
                       </h3>
                       <p className="text-text-muted">
-                        Our team will reach out to schedule your demo call
-                        shortly.
+                        Our team will reach out to you shortly.
                       </p>
                     </div>
                   ) : (
@@ -152,16 +216,16 @@ export default function SponsorsPage() {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               strokeWidth={1.5}
-                              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                             />
                           </svg>
                         </div>
                         <div>
                           <h3 className="font-bold text-navy">
-                            Book a Demo Call
+                            Contact Us
                           </h3>
                           <p className="text-sm text-text-muted">
-                            See our platform in action
+                            We'll get back to you within 24 hours
                           </p>
                         </div>
                       </div>
@@ -188,7 +252,7 @@ export default function SponsorsPage() {
                           onChange={(e) =>
                             setFormData({ ...formData, email: e.target.value })
                           }
-                          placeholder="Work Email"
+                          placeholder="Email Address"
                           required
                           className="w-full px-4 py-3.5 rounded-xl border border-border bg-white text-navy placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors"
                         />
@@ -209,8 +273,8 @@ export default function SponsorsPage() {
                               comment: e.target.value,
                             })
                           }
-                          placeholder="Tell us about your trial needs..."
-                          rows={3}
+                          placeholder="How can we help you?"
+                          rows={4}
                           className="w-full px-4 py-3.5 rounded-xl border border-border bg-white text-navy placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors resize-none"
                         />
                         <label className="flex items-start gap-3 cursor-pointer">
@@ -235,7 +299,7 @@ export default function SponsorsPage() {
                           className="w-full"
                           disabled={isSubmitting}
                         >
-                          {isSubmitting ? "Submitting..." : "Book Demo Call"}
+                          {isSubmitting ? "Sending..." : "Send Message"}
                         </Button>
                       </form>
                     </>
@@ -245,15 +309,6 @@ export default function SponsorsPage() {
             </div>
           </Container>
         </section>
-
-        {/* Why Partner With Us */}
-        <WhyPartner />
-
-        {/* How We Do It */}
-        <HowWeDoItSponsors />
-
-        {/* CTA */}
-        <CTA />
       </main>
       <Footer />
       <CookieBanner />

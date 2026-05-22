@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { CTA } from "@/components/landing/CTA";
@@ -14,17 +15,65 @@ export default function PatientsPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    condition: "",
+    phone: "",
+    newsletter: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError("");
+
+    try {
+      // Get reCAPTCHA token (optional - proceed without if not loaded)
+      let recaptchaToken = "";
+      if (typeof window !== "undefined" && window.grecaptcha?.enterprise) {
+        try {
+          recaptchaToken = await new Promise<string>((resolve) => {
+            window.grecaptcha.enterprise.ready(async () => {
+              const token = await window.grecaptcha.enterprise.execute(
+                "6LcYfvcsAAAAAJ8qpmFJYz9tj4YV_e1XV_GttCZF",
+                { action: "SUBMIT_FORM" }
+              );
+              resolve(token);
+            });
+          });
+        } catch {
+          // Continue without reCAPTCHA if it fails
+          console.warn("reCAPTCHA not available");
+        }
+      }
+
+      const response = await fetch("/api/pipedrive", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          newsletter: formData.newsletter,
+          source: "patients",
+          recaptchaToken,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to submit form");
+      }
+
+      setIsSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -53,10 +102,26 @@ export default function PatientsPage() {
                   research while accessing innovative treatments.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button variant="primary" size="lg">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    onClick={() =>
+                      document
+                        .querySelector('form')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  >
                     Join Waitlist
                   </Button>
-                  <Button variant="outline" size="lg">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={() =>
+                      document
+                        .querySelector('.how-it-works')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  >
                     How It Works
                   </Button>
                 </div>
@@ -123,6 +188,11 @@ export default function PatientsPage() {
                       </div>
 
                       <form onSubmit={handleSubmit} className="space-y-4">
+                        {error && (
+                          <div className="p-3 rounded-lg bg-red-50 text-red-600 text-sm">
+                            {error}
+                          </div>
+                        )}
                         <input
                           type="text"
                           value={formData.name}
@@ -144,17 +214,30 @@ export default function PatientsPage() {
                           className="w-full px-4 py-3.5 rounded-xl border border-border bg-white text-navy placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors"
                         />
                         <input
-                          type="text"
-                          value={formData.condition}
+                          type="tel"
+                          value={formData.phone}
                           onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              condition: e.target.value,
-                            })
+                            setFormData({ ...formData, phone: e.target.value })
                           }
-                          placeholder="CNS Research Area (e.g., Alzheimer's)"
+                          placeholder="Phone Number (optional)"
                           className="w-full px-4 py-3.5 rounded-xl border border-border bg-white text-navy placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy transition-colors"
                         />
+                        <label className="flex items-start gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={formData.newsletter}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                newsletter: e.target.checked,
+                              })
+                            }
+                            className="mt-1 w-4 h-4 rounded border-border text-navy focus:ring-navy/20"
+                          />
+                          <span className="text-sm text-text-muted">
+                            Subscribe to our newsletter for CNS trial insights and updates
+                          </span>
+                        </label>
                         <Button
                           type="submit"
                           variant="primary"

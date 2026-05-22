@@ -5,10 +5,93 @@ import { Footer } from "@/components/landing/Footer";
 import { CTA } from "@/components/landing/CTA";
 import { CookieBanner } from "@/components/landing/CookieBanner";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
+import { useState } from "react";
+
+// Expandable Card Component
+function ExpandableValueCard({
+  title,
+  description,
+  icon,
+  gradient,
+  textColor = "text-navy",
+  image,
+  isExpanded,
+  onHover,
+}: {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  gradient: string;
+  textColor?: string;
+  image?: string;
+  isExpanded: boolean;
+  onHover: () => void;
+}) {
+  return (
+    <motion.div
+      onMouseEnter={onHover}
+      className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out ${gradient}`}
+      style={{
+        flex: isExpanded ? 2.5 : 1,
+        minHeight: "420px",
+      }}
+      layout
+    >
+      {/* Icon in top right */}
+      <div className="absolute top-6 right-6 z-10">
+        <div className={`w-10 h-10 rounded-full border-2 ${textColor === "text-white" ? "border-white/40 bg-white/10" : "border-navy/20 bg-navy/5"} flex items-center justify-center backdrop-blur-sm`}>
+          <div className={`w-5 h-5 ${textColor === "text-white" ? "text-white" : "text-navy/70"}`}>
+            {icon}
+          </div>
+        </div>
+      </div>
+
+      {/* Image (shown when expanded) - positioned on the left */}
+      {image && (
+        <div
+          className={`absolute top-6 left-6 bottom-6 transition-all duration-500 ease-out ${isExpanded ? 'w-[45%] opacity-100' : 'w-0 opacity-0'}`}
+        >
+          <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Content */}
+      <div
+        className={`absolute bottom-0 right-0 p-8 z-10 flex flex-col justify-end transition-all duration-500 ${isExpanded ? 'left-[50%]' : 'left-0'}`}
+        style={{ top: 0 }}
+      >
+        <h3 className={`text-2xl md:text-3xl font-bold ${textColor}`}>
+          {title}
+        </h3>
+
+        {/* Expanded content */}
+        <div
+          className={`overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}`}
+        >
+          <p className={`${textColor === "text-white" ? "text-white/90" : "text-navy/70"} mb-6 text-base leading-relaxed`}>
+            {description}
+          </p>
+          <button className={`inline-flex items-center gap-2 px-6 py-3 rounded-full ${textColor === "text-white" ? "bg-white text-navy" : "bg-white text-navy border border-navy/10"} font-semibold hover:shadow-lg transition-all`}>
+            Explore
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function AboutPage() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(1);
 
   const values = [
     {
@@ -19,6 +102,9 @@ export default function AboutPage() {
       ),
       title: "Innovation First",
       description: "Pioneering AI-powered solutions that transform how CNS clinical trials connect with patients and sites.",
+      gradient: "bg-gradient-to-b from-blue-100 via-blue-200 to-blue-300",
+      textColor: "text-navy",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop&q=60",
     },
     {
       icon: (
@@ -28,6 +114,9 @@ export default function AboutPage() {
       ),
       title: "Patient-Centric",
       description: "Every decision we make prioritizes patient access, safety, and the advancement of neuroscience research.",
+      gradient: "bg-gradient-to-br from-[#0d2847] via-[#1a3a5c] to-[#0d2847]",
+      textColor: "text-white",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=60",
     },
     {
       icon: (
@@ -35,8 +124,11 @@ export default function AboutPage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       ),
-      title: "Trust & Transparency",
+      title: "Trust ",
       description: "Building trust through HIPAA-compliant security, ethical practices, and transparent operations.",
+      gradient: "bg-gradient-to-b from-orange-100 via-orange-200 to-orange-300",
+      textColor: "text-navy",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=60",
     },
     {
       icon: (
@@ -46,6 +138,9 @@ export default function AboutPage() {
       ),
       title: "Global Impact",
       description: "Connecting clinical research across 50+ countries to accelerate breakthrough treatments worldwide.",
+      gradient: "bg-gradient-to-b from-slate-200 via-slate-300 to-slate-400",
+      textColor: "text-navy",
+      image: "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?w=800&auto=format&fit=crop&q=60",
     },
   ];
 
@@ -67,16 +162,6 @@ export default function AboutPage() {
                 transition={{ duration: 0.8 }}
                 className="max-w-2xl"
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  <span className="inline-block px-6 py-2 rounded-full bg-orange-500/20 text-orange-300 text-sm font-semibold mb-6 border border-orange-400/30">
-                    About TrialClinIQ
-                  </span>
-                </motion.div>
-
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -192,40 +277,38 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-16"
+              className="flex items-center justify-between mb-12"
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy">
                 Our Core Values
               </h2>
-              <p className="text-lg text-text-muted max-w-2xl mx-auto">
-                The principles that guide everything we do.
-              </p>
+              <a
+                href="#"
+                className="hidden md:flex items-center gap-3 text-navy font-medium hover:text-orange-500 transition-colors"
+              >
+                Discover Our Mission
+                <span className="w-12 h-12 rounded-full border-2 border-navy flex items-center justify-center hover:bg-navy hover:text-white transition-all">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </span>
+              </a>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Expandable Cards Container */}
+            <div className="flex gap-4">
               {values.map((value, index) => (
-                <motion.div
+                <ExpandableValueCard
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="group relative bg-surface/30 rounded-2xl p-8 border-2 border-transparent hover:border-navy/30 hover:bg-white transition-all duration-300 hover:shadow-xl"
-                >
-                  <div className="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                    <div className="w-7 h-7">{value.icon}</div>
-                  </div>
-                  <h3 className="text-xl font-bold text-navy mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-text-muted leading-relaxed">
-                    {value.description}
-                  </p>
-
-                  {/* Hover decoration */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity rounded-b-2xl" />
-                </motion.div>
+                  title={value.title}
+                  description={value.description}
+                  icon={value.icon}
+                  gradient={value.gradient}
+                  textColor={value.textColor}
+                  image={value.image}
+                  isExpanded={expandedIndex === index}
+                  onHover={() => setExpandedIndex(index)}
+                />
               ))}
             </div>
           </Container>

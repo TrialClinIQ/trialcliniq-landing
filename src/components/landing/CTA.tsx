@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { PipedriveWebForm } from "@/components/PipedriveWebForm";
 import { motion } from "framer-motion";
 
 export function CTA() {
@@ -14,7 +14,7 @@ export function CTA() {
           <div
             className="absolute inset-0 z-0"
             style={{
-              background: "linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #dc2626 100%)",
+              background: "linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%)",
             }}
           />
 
@@ -45,22 +45,18 @@ export function CTA() {
                 Find out how<br />
                 TrialClinIQ can help you
               </h2>
-              <Button
-                variant="primary"
-                size="lg"
-                className="bg-[#0d2847] text-white hover:bg-[#1a3a6b] border-none shadow-xl mb-8"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Contact Us
-                <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Button>
-
-              {/* Pipedrive Web Form */}
-              <div className="max-w-md mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <PipedriveWebForm />
-              </div>
+              <Link href="/contact">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="bg-[#0d2847] text-white hover:bg-[#1a3a6b] border-none shadow-xl"
+                >
+                  Contact Us
+                  <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>
