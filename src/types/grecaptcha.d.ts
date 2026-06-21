@@ -1,5 +1,7 @@
 declare global {
   interface Window {
+    gtag: (...args: unknown[]) => void;
+    dataLayer: unknown[];
     grecaptcha: {
       enterprise: {
         ready: (callback: () => void) => void;

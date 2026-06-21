@@ -68,6 +68,13 @@ export default function ContactPage() {
       }
 
       setIsSubmitted(true);
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18196948390/vPLFCMHt-LccEKbL_eRD',
+          value: 1.0,
+          currency: 'USD',
+        });
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {

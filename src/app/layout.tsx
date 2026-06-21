@@ -32,6 +32,19 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
         {children}
+        {/* Google Tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18196948390"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18196948390');
+          `}
+        </Script>
         {/* Google reCAPTCHA Enterprise */}
         <Script
           src="https://www.google.com/recaptcha/enterprise.js?render=6LcYfvcsAAAAAJ8qpmFJYz9tj4YV_e1XV_GttCZF"
