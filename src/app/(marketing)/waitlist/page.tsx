@@ -92,8 +92,7 @@ export default function WaitlistPage() {
                   Join the Waitlist
                 </h1>
                 <p className="text-lg text-text-muted">
-                  Be the first to experience TrialClinIQ&apos;s revolutionary CNS trial
-                  enrollment platform. Get early access and updates.
+                  Be the first to experience TrialClinIQ&apos;s AI-powered referral matching platform — built to help FQHCs, rural hospitals, and community clinics flag patients who need specialist care and improve referral timelines.
                 </p>
               </motion.div>
 
