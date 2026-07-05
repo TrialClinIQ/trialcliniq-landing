@@ -97,12 +97,12 @@ export default function SponsorsPage() {
                   For Sponsors & CROs
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6 leading-tight">
-                  Accelerate Your CNS Trial Enrollment
+                  Reach Patients Where They Receive Care
                 </h1>
                 <p className="text-lg text-text-muted max-w-lg mb-8">
-                  See how TrialClinIQ accelerates CNS trial enrollment with
-                  pre-screened, consent-ready candidates. Partner with us to
-                  reduce timelines and improve patient quality.
+                  Access pre-identified patient populations through our network of FQHCs,
+                  rural hospitals, and community clinics — connected via TEFCA/QHIN and
+                  direct EHR integration. Pre-screened, consent-ready candidates, faster timelines.
                 </p>
               </motion.div>
 

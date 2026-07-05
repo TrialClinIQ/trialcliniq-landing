@@ -7,29 +7,29 @@ import Image from "next/image";
 
 const steps = [
   {
-    title: "Integrate health systems",
+    title: "Connect your EHR data",
     content:
-      "We connect directly with health system EHRs and community health centers, aggregating real-world health records into our secure data infrastructure.",
+      "We integrate with your EHR system and ingest health data through TEFCA/QHIN networks, creating a real-time, longitudinal view of your patient population.",
   },
   {
-    title: "Define trial protocols",
+    title: "AI flags at-risk patients",
     content:
-      "Sponsors upload their CNS trial protocols and eligibility criteria. Our platform normalizes requirements for AI-powered matching.",
+      "Our AI continuously analyzes health records to identify patients who may benefit from a specialist referral — often detecting risk patterns before a formal diagnosis.",
   },
   {
-    title: "AI identifies candidates",
+    title: "Alerts reach the right people",
     content:
-      "Machine learning algorithms analyze aggregated health records to identify and pre-screen patients who match trial criteria.",
+      "Providers and referral coordinators are automatically notified through a unified dashboard when a patient needs action, eliminating manual review bottlenecks.",
   },
   {
-    title: "Deliver qualified candidates",
+    title: "Referrals are streamlined",
     content:
-      "Pre-screened, consent-ready candidates are surfaced to sponsors with relevant clinical data, dramatically reducing screening failures.",
+      "The platform guides the referral from flagging through coordination, improving timelines and reducing the risk of patients falling through the cracks.",
   },
   {
-    title: "Track enrollment metrics",
+    title: "Clinical trials as a bonus",
     content:
-      "Real-time dashboards provide visibility into recruitment pipeline, site performance, and enrollment progress across the network.",
+      "Eligible patients are also matched to relevant clinical trials, giving your organization an additional care pathway and potential research revenue.",
   },
 ];
 
@@ -118,8 +118,7 @@ export function HowItWorks() {
               works
             </h2>
             <p className="text-text-muted text-lg mb-10 max-w-md">
-              Our data infrastructure connects sponsors with health systems
-              to accelerate CNS trial recruitment. Here&apos;s how it works:
+              Our platform connects to your health data, flags patients who need referrals, and gets the right people notified — faster. Here&apos;s how it works:
             </p>
 
             {/* Divider */}

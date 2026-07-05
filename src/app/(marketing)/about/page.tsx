@@ -101,7 +101,7 @@ export default function AboutPage() {
         </svg>
       ),
       title: "Innovation First",
-      description: "Pioneering AI-powered solutions that transform how CNS clinical trials connect with patients and sites.",
+      description: "Pioneering AI-powered referral matching that transforms how FQHCs, rural hospitals, and community clinics identify and route patients who need specialist care.",
       gradient: "bg-gradient-to-b from-blue-100 via-blue-200 to-blue-300",
       textColor: "text-navy",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop&q=60",
@@ -113,7 +113,7 @@ export default function AboutPage() {
         </svg>
       ),
       title: "Patient-Centric",
-      description: "Every decision we make prioritizes patient access, safety, and the advancement of neuroscience research.",
+      description: "Every decision we make prioritizes getting patients to the right care — whether that's a specialist referral or a clinical trial that could change their outcome.",
       gradient: "bg-gradient-to-br from-[#0d2847] via-[#1a3a5c] to-[#0d2847]",
       textColor: "text-white",
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=60",
@@ -136,8 +136,8 @@ export default function AboutPage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
         </svg>
       ),
-      title: "Global Impact",
-      description: "Connecting clinical research across 50+ countries to accelerate breakthrough treatments worldwide.",
+      title: "Community Impact",
+      description: "Focused on the health organizations that serve the most underserved populations — FQHCs, rural clinics, and community health centers across the country.",
       gradient: "bg-gradient-to-b from-slate-200 via-slate-300 to-slate-400",
       textColor: "text-navy",
       image: "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?w=800&auto=format&fit=crop&q=60",
@@ -168,9 +168,9 @@ export default function AboutPage() {
                   transition={{ duration: 0.8, delay: 0.3 }}
                   className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
                 >
-                  Transforming CNS
+                  Smarter Referrals
                   <br />
-                  <span className="text-white/80">Clinical Trials</span>
+                  <span className="text-white/80">for Community Care</span>
                 </motion.h1>
 
                 <motion.p
@@ -179,8 +179,9 @@ export default function AboutPage() {
                   transition={{ duration: 0.8, delay: 0.5 }}
                   className="text-xl text-white/80 mb-8 leading-relaxed"
                 >
-                  Building the clinical trial recruitment data infrastructure of the future —
-                  connecting sponsors and health systems through AI-powered patient matching.
+                  TrialClinIQ ingests health data through TEFCA/QHIN and direct EHR integration
+                  to flag patients who need specialist referrals — alerting providers and coordinators
+                  before conditions go undetected. Clinical trial matching included.
                 </motion.p>
 
                 <motion.div
@@ -237,9 +238,9 @@ export default function AboutPage() {
                   Our Vision
                 </h2>
                 <p className="text-lg text-text-muted leading-relaxed mb-6">
-                  A world where every CNS clinical trial reaches full enrollment efficiently,
-                  every qualified patient has access to breakthrough treatments, and
-                  neuroscience research moves at the speed of innovation.
+                  A world where every FQHC, rural hospital, and community clinic has the tools
+                  to identify patients who need specialist care — and get them there before
+                  conditions go undetected or untreated.
                 </p>
                 <div className="h-2 w-24 bg-orange-500 rounded-full" />
               </motion.div>
@@ -259,9 +260,10 @@ export default function AboutPage() {
                   Our Mission
                 </h2>
                 <p className="text-lg text-text-muted leading-relaxed mb-6">
-                  To revolutionize CNS trial enrollment by leveraging AI-powered matching,
-                  health information exchange technology, and a global network of research
-                  sites to connect patients and sponsors seamlessly.
+                  To empower FQHCs, rural hospitals, and community clinics with AI-powered
+                  referral matching — using TEFCA/QHIN and direct EHR integration to flag
+                  patients, streamline referral timelines, and alert the right care team members
+                  at the right time.
                 </p>
                 <div className="h-2 w-24 bg-linear-to-r from-orange-500 to-orange-400 rounded-full" />
               </motion.div>

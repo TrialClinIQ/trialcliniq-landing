@@ -94,12 +94,12 @@ export default function PatientsPage() {
                   For Patients
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6 leading-tight">
-                  Access Breakthrough CNS Therapies
+                  Get to the Right Specialist Sooner
                 </h1>
                 <p className="text-lg text-text-muted max-w-lg mb-8">
-                  Be first to access our HIE platform and get matched to CNS
-                  clinical trials. Join thousands who are advancing neuroscience
-                  research while accessing innovative treatments.
+                  TrialClinIQ helps your care team identify when you may need a specialist referral —
+                  flagging patterns in your health records before conditions worsen. We also match
+                  eligible patients to clinical trials for additional treatment options.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button

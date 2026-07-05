@@ -17,11 +17,11 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-              Building the
+              Smarter referrals
               <br />
-              recruitment data
+              start with better
               <br />
-              infrastructure to
+              data infrastructure
             </h2>
           </motion.div>
 
@@ -34,23 +34,23 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="space-y-2">
-              <h3 className="text-xl font-bold tracking-wider text-foreground">CONNECT</h3>
-              <p className="text-base text-foreground/70">sponsors with health systems at scale</p>
+              <h3 className="text-xl font-bold tracking-wider text-foreground">INGEST</h3>
+              <p className="text-base text-foreground/70">health data through TEFCA/QHIN and direct EHR integration</p>
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl font-bold tracking-wider text-foreground">AGGREGATE</h3>
-              <p className="text-base text-foreground/70">real-world health records for intelligent matching</p>
+              <h3 className="text-xl font-bold tracking-wider text-foreground">FLAG</h3>
+              <p className="text-base text-foreground/70">patients who may benefit from a specialist referral — often before diagnosis</p>
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl font-bold tracking-wider text-foreground">ACCELERATE</h3>
-              <p className="text-base text-foreground/70">enrollment timelines with pre-screened candidates</p>
+              <h3 className="text-xl font-bold tracking-wider text-foreground">ALERT</h3>
+              <p className="text-base text-foreground/70">providers and referral coordinators through a unified dashboard</p>
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl font-bold tracking-wider text-foreground">SCALE</h3>
-              <p className="text-base text-foreground/70">CNS and Alzheimer's trials across partner networks</p>
+              <h3 className="text-xl font-bold tracking-wider text-foreground">IMPROVE</h3>
+              <p className="text-base text-foreground/70">referral timelines for FQHCs, rural hospitals, and community clinics</p>
             </div>
           </motion.div>
         </div>

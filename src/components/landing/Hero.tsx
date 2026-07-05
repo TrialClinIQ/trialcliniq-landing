@@ -61,7 +61,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              CLINICAL TRIAL DATA INFRASTRUCTURE
+              AI-POWERED REFERRAL MATCHING
             </motion.p>
 
             {/* Subheading */}
@@ -71,7 +71,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Connecting Sponsors and Health Systems Through AI-Powered Patient Matching
+              Smarter Referrals for FQHCs, Rural Hospitals, and Community Clinics
             </motion.h2>
 
             {/* Detailed description */}
@@ -81,7 +81,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              TrialClinIQ is building the clinical trial recruitment data infrastructure of the future — using real-world health records and AI to accelerate enrollment, beginning with CNS and Alzheimer's trials.
+              TrialClinIQ ingests health data through TEFCA/QHIN and direct EHR integration to flag patients who may benefit from a specialist referral — alerting providers and referral coordinators before conditions go undetected. Clinical trial matching included.
             </motion.p>
 
             {/* CTA Buttons */}

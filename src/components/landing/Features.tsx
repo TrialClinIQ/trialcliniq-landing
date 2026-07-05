@@ -2,19 +2,19 @@ import { Container } from "@/components/ui/Container";
 
 const features = [
   {
-    title: "Community Health Center Partnerships",
+    title: "Flag Patients Before Diagnosis",
     description:
-      "We work directly with Federally Qualified Health Centers (FQHCs) and community clinics to bring clinical trials to where patients already receive care, eliminating barriers to participation.",
+      "Our AI analyzes real-world health data to identify patients who may benefit from a specialist referral — often flagging risk patterns long before a formal diagnosis is made.",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
       </svg>
     ),
   },
   {
-    title: "AI-Powered Matching",
+    title: "Improve Referral Timelines",
     description:
-      "Our proprietary algorithm considers medical history, demographics, location, and trial requirements to find the best matches, increasing enrollment rates and reducing screen failures.",
+      "Streamline the referral process end-to-end — from flagging the right patients to alerting providers and referral coordinators through a unified dashboard, reducing delays.",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -22,12 +22,12 @@ const features = [
     ),
   },
   {
-    title: "Longitudinal Recruitment",
+    title: "Built for FQHCs & Rural Care",
     description:
-      "Track patient journeys over time, building trusted relationships that lead to better retention and improved access to clinical research.",
+      "Designed specifically for Federally Qualified Health Centers, rural hospitals, and community clinics — organizations that serve high-need populations but lack specialized referral infrastructure.",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
   },
@@ -42,7 +42,7 @@ export function Features() {
             Why Choose TrialClinIQ
           </h2>
           <p className="mt-4 text-lg text-foreground/70 max-w-2xl mx-auto">
-            Our platform is designed to make clinical trial access equitable and efficient
+            Our platform helps community health organizations identify patients who need specialist care — and get them there faster
           </p>
         </div>
 

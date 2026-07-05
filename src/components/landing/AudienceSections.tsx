@@ -8,12 +8,12 @@ const audiences = [
   {
     id: "patients",
     label: "For Patients",
-    title: "Access Research Opportunities",
-    description: "Discover clinical trials that could make a difference in your health journey.",
+    title: "Get to the Right Specialist Sooner",
+    description: "TrialClinIQ helps your care team identify when you may need a specialist — before your condition worsens.",
     bullets: [
-      "Get matched with trials based on your unique health profile",
-      "Access cutting-edge treatments before they're widely available",
-      "Receive care at community health centers you already trust",
+      "Get flagged for a referral based on patterns in your health records",
+      "Reach the right specialist faster with a streamlined referral process",
+      "Also get matched to clinical trials that may offer additional treatment options",
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -24,12 +24,12 @@ const audiences = [
   {
     id: "providers",
     label: "For Providers/CHCs",
-    title: "Expand Your Impact",
-    description: "Partner with us to bring clinical research opportunities to your patient population.",
+    title: "Streamline Referrals Across Your Panel",
+    description: "Built for FQHCs, rural hospitals, and community clinics — TrialClinIQ helps your team catch patients who need specialist care before it's too late.",
     bullets: [
-      "Offer your patients access to innovative treatments",
-      "Generate additional revenue through research partnerships",
-      "Strengthen community trust by participating in important research",
+      "Automatically flag patients who may benefit from a referral to a specialist",
+      "Alert providers and referral coordinators through a unified dashboard",
+      "Improve referral timelines and reduce patients falling through the cracks",
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,12 +40,12 @@ const audiences = [
   {
     id: "sponsors",
     label: "For Sponsors/CROs",
-    title: "Accelerated Recruitment Solutions",
-    description: "Connect with community health centers and leverage interoperable data to meet your enrollment goals.",
+    title: "Reach Patients Where They Receive Care",
+    description: "Access pre-identified patient populations through our network of FQHCs, rural hospitals, and community clinics.",
     bullets: [
-      "Access patient populations through trusted community health center partnerships",
-      "Reduce recruitment timelines with AI-powered matching and interoperable EHR data",
-      "Streamline enrollment with pre-screened, consent-ready candidates",
+      "Tap into TEFCA/QHIN-connected health data for broader patient reach",
+      "Reduce recruitment timelines with AI-matched, pre-screened candidates",
+      "Partner with community health organizations already trusted by your target populations",
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,7 +67,7 @@ export function AudienceSections() {
             Who We Serve
           </h2>
           <p className="mt-4 text-lg text-foreground/70 max-w-2xl mx-auto">
-            TrialClinIQ brings value to every stakeholder in the clinical trial ecosystem
+            TrialClinIQ serves FQHCs, rural hospitals, community clinics, patients, and clinical trial sponsors
           </p>
         </div>
 
