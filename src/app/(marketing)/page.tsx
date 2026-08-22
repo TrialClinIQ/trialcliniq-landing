@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/landing/Navbar";
 import { Hero } from "@/components/landing/Hero";
 import { About } from "@/components/landing/About";
+import { AudienceSections } from "@/components/landing/AudienceSections";
 import { Solutions } from "@/components/landing/Solutions";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { CTA } from "@/components/landing/CTA";
@@ -15,6 +16,7 @@ export default function LandingPage() {
       <main>
         <Hero />
         <About />
+        <AudienceSections />
         <Solutions />
         <HowItWorks />
         <CTA />
